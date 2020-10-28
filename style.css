@@ -1,0 +1,259 @@
+html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+        
+p {
+    margin-bottom: -4em;  
+    margin-top: 2px;
+    font-size: 12px
+}
+        
+
+#info-box h5  {
+    font-weight: regular;
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 20px;
+
+}
+
+#text {
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px 
+
+}
+
+.break{
+    display:block;
+    margin:0 0 1em;
+}
+
+.logo {
+    position: fixed;
+    z-index: -1;
+    top: 30px;
+    right: 40px;
+}
+
+#outer-container {
+    padding: 15px;
+    height: 80px;
+    width: 425px;
+}
+
+#description-slider {
+    padding: 10px 10px 10px 20px;
+    font-size: 10pt;
+    border: 2px solid #c4c4c4;
+    background: #ebebeb;
+    text-align: center
+
+}
+
+#description-filter {
+    padding: 10px 10px 10px 20px;
+    font-size: 10pt;
+    border: 2px solid #c4c4c4;
+    background: #ebebeb;
+    text-align: center
+
+}
+
+#description-text {
+    padding: 10px 10px 10px 20px;
+    font-size: 9pt;
+
+}
+
+.esri-popup__main-container {
+    max-height: 600px !important;
+}
+
+
+#info-box {
+    width: 325px;
+    height: 550px;
+    position: fixed;
+    z-index: 1000;
+    bottom: 29px;
+    right: 54px;
+    background: rgba(245, 245, 245, 0.91);
+    overflow-x: hidden;
+    padding: 5px 5px 5px;
+    opacity: 1;
+    border-radius: 0px;
+    border: 2px solid #c4c4c4;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 4px 11px 0 rgba(0,0,0,0.19);
+}     
+
+#legend {
+    padding-top: 0px;
+    position: fixed;
+    z-index: 1000;
+    bottom: 32px;
+    right: 72px;
+    background-color: transparent;
+}
+
+.btn-group-vertical {
+    bottom: 30px;
+    left: 40px;
+    position: fixed;
+}
+
+#btnCounties {
+    background-color: #7ed3f6; 
+    border: 4px solid #00679d !important;
+    color: white; 
+    font: 12px/17px 'Roboto', sans-serif !important;
+    font-weight: bold !important;
+    padding: 5px 5px;
+    margin-bottom: 12px;
+    cursor: pointer; 
+    width: 130px !important; 
+    height: 40px !important;
+    text-align: center !important;
+    vertical-align: center !important;
+    display: inline-block !important;
+    border-radius: 7px !important;
+    box-shadow: 0 7px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#btnCongDist {
+    background-color: #7ed3f6; 
+    border: 4px solid #00679d !important;
+    color: white; 
+    font: 12px/17px 'Roboto', sans-serif !important;
+    font-weight: bold !important;
+    padding: 5px 5px;
+    margin-bottom: 12px;
+    cursor: pointer; 
+    width: 130px !important; 
+    height: 40px !important;
+    text-align: center !important;
+    vertical-align: center !important;
+    display: inline-block !important;
+    border-radius: 7px !important;
+    box-shadow: 0 7px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#btnStates {
+    background-color: #7ed3f6; 
+    border: 4px solid #00679d !important;
+    color: white; 
+    font: 12px/17px 'Roboto', sans-serif !important;
+    font-weight: bold !important;
+    padding: 5px 5px;
+    margin-bottom: 12px;
+    cursor: pointer; 
+    width: 130px !important; 
+    height: 40px !important;
+    text-align: center !important;
+    vertical-align: center !important;
+    display: inline-block !important;
+    border-radius: 7px !important;
+    box-shadow: 0 7px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#countyFilterDiv {
+    visibility: hidden;
+    z-index: 1000;
+    background-color: white;
+    border: 2px solid #000;
+    width: 240px;
+    height: 100px;
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    visibility: visible;
+    z-index: 1000;
+}
+
+#countyFilterDiv.pressed {
+    visibility: visible;
+    z-index: 1000;
+}
+
+#countyFilter {
+    width: 200px;
+    height: 30px;
+    position: fixed;
+    top: 30px;
+    right:60px;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+    border: 4px solid #000;    
+}
+
+#numProjFilter {
+    width: 200px;
+    height: 30px;
+    position: fixed;
+    top: 70px;
+    right:60px;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+    border: 4px solid #000;    
+}
+
+#cdFilterDiv {
+    background-color: white;
+    border: 2px solid #000;
+    width: 240px;
+    height: 100px;
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    visibility: visible;
+    z-index: 1000;
+}
+
+#cdFilterDiv.pressed {
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#partyFilter {
+    width: 200px;
+    height: 30px;
+    position: relative;
+    top: 13px;
+    right:-20px;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+    border: 4px solid #000;
+}
+
+#partyStateFilter {
+    width: 200px;
+    height: 30px;
+    position: relative;
+    top: 23px;
+    right:-20px;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+    border: 4px solid #000;
+}
+
+.chartDiv {
+    width: 100%;
+    height: 200px !important;
+    padding-top: 5px;
+}
+
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loading {
+    height: 30px;
+    width: 30px;
+}
+

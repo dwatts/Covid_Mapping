@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+
+      
+<title>Historic Tax Credit Use by Congressional District</title>
+
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">  
+    
+  </head>
+
+  <body>
+      
+    <div class ="btn-group-vertical" style="position: absolute; z-index:1000;">
+            <button id='btnSept' type="button" class="btn">September</button>
+            <button id='btnOct' type="button" class='btn'>October</button>
+            <!--<button id='btnStates' type="button" class="btn">Turn States On</button>-->
+    </div>    
+    
+<!--<div id="countyFilterDiv">
+            <select id="countyFilter" class="dropdown">
+                <option value="">(Select All Counties)</option>
+            </select>
+            <select id="numProjFilter" class="dropdown">
+                <option value="1">(Select All Project Numbers)</option>
+                <option value="2">0 HTC Projects</option>
+                <option value="3">1 HTC Project</option>
+                <option value="4">Between 2 and 5 HTC Projects</option>
+                <option value="5">Between 6 and 10 HTC Projects</option>
+                <option value="6">Between 11 and 50 HTC Projects</option>
+                <option value="7">Between 51 and 900+ HTC Projects</option>
+            </select>
+    </div>-->
+      
+    <!--<div id="cdFilterDiv">
+            <select id="partyFilter" class="dropdown">
+                <option value="1">(Select All Parties)</option>
+                <option value="2">Democratic</option>
+                <option value="3">Republican</option>
+                <option value="4">Vacant</option>
+            </select>
+            <select id="partyStateFilter" class="dropdown">
+                <option value="">(Select All States)</option>
+            </select>
+    </div>-->
+       
+      
+    <div id="viewDiv"></div>
+      
+    <div id="loader">
+        <img id='loading' src="https://i.stack.imgur.com/qq8AE.gif"/>  
+    </div>  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
+    <script src="https://js.arcgis.com/4.15/"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/script.js"></script>  
+      
+  </body>
+</html>
