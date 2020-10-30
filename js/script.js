@@ -147,7 +147,7 @@
                             //stacked: true
                             ticks: {
                                 fontSize: 12,
-                                fontColor: "#000"
+                                fontColor: "#000",
                             }
                         }],
                         yAxes: [{
@@ -155,7 +155,7 @@
                             ticks: {
                                 beginAtZero: true,
                                 fontSize: 10,
-                                fontColor: "#000"
+                                fontColor: "#000",           
                             }
                         }]
                     },
@@ -246,7 +246,13 @@
                             ticks: {
                                 beginAtZero: true,
                                 fontSize: 10,
-                                fontColor: "#000"
+                                fontColor: "#000",
+                                callback: function(value) {
+                                    if (!(value%1))
+                                    {
+                                    return Number(value).toFixed(0);
+                                    }
+                                }
                             }
                         }]
                     },
