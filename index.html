@@ -7,7 +7,7 @@
     />
 
       
-<title>Mapping COVID-19</title>
+<title>Visualizing COVID-19</title>
 
     <link rel="stylesheet" href="style.css"/>  
     <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/themes/light/main.css" />
@@ -20,12 +20,11 @@
       
     <div id="filterDiv">
             <div class="filterText">Filter Counties by State</div>
+            <button id="reset">Reset</button>
             <select id="stateFilter" class="dropdown">
                 <option value="">(select a state)</option>
             </select>
-            <select id="countyFilter" class="dropdown">
-                <option value="">(select a county)</option>
-            </select>
+            
     </div>
             
     <div id="viewDiv"></div>
@@ -69,7 +68,7 @@
     </holder>
       
     <div id="infoDiv">
-        <p>This application visualizes the rate of COVID-19 infections per 1,000 people at the county level at the beginning of each month since the pandemic's beginning through October 2020. Toggle between months using the buttons at the bottom left of the screen. Click on individual counties to get more detailed information. Visible counties can also be filtered by a state filter in the upper right of the screen.</p>
+        <p>This application visualizes the rate of COVID-19 infections per 1,000 people at the county level at the beginning of each month since the pandemic's start in February through October 2020. Toggle between months using the buttons at the bottom left of the screen. Click on individual counties to get more detailed information and graphs. Visible counties can also be filtered by using the state filter in the upper right corner of the screen.</p>
         <p>The raw data powering this application was sourced from the <i>New York Times</i> and is publically available through <a href="https://github.com/nytimes/covid-19-data/" target="_blank">Github</a>. A more refined dataset for use within this application was created using RStudio and ArcGIS Pro.</p>
         <p>Copyright 2020 Daniel H. Watts</p>
     </div>

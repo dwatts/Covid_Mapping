@@ -396,8 +396,7 @@
                 color: [219, 219, 219, 0],
                 outline: {
                   color: [0,0,0, 0.5],
-                  width: 1,
-                  //style: "short-dot"    
+                  width: 1,    
                 }
             }    
         },
@@ -405,7 +404,7 @@
         popupEnabled: false,
     });
                 
-    //Add and Style States Feature Layer      
+//Add and Style States Feature Layer      
             
       var states = new FeatureLayer({
           url: "https://services5.arcgis.com/CmuSiXApoWtqLYty/arcgis/rest/services/US_States/FeatureServer",
@@ -413,10 +412,9 @@
           renderer: {
               type: "simple",
               symbol: {
-                type: "simple-fill", // autocasts as new SimpleFillSymbol()
+                type: "simple-fill",
                 color: [219, 219, 219, 0.1],
                 outline: {
-                  // makes the outlines of all features consistently light gray
                   color: "#000",
                   width: 1.5,
                   style: "solid"    
@@ -465,7 +463,7 @@
               }]
         });
           
-        //Add and Style Cities Feature Layer  
+//Add and Style Cities Feature Layer  
           
         var cities = new FeatureLayer({
             url: "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Major_Cities/FeatureServer/0",
@@ -524,7 +522,7 @@
         });
         
         
-               //Add and Style US Outline Feature Layer      
+//Add and Style US Outline Feature Layer      
           
        var baseOutLine25km = new FeatureLayer({
             url: "https://services5.arcgis.com/CmuSiXApoWtqLYty/arcgis/rest/services/US_Buffer_25k/FeatureServer",
@@ -533,9 +531,9 @@
             renderer: {
                 type: "simple",
                 symbol: {
-                  type: "polygon-3d",  // autocasts as new PolygonSymbol3D()
+                  type: "polygon-3d", 
                   symbolLayers: [{
-                    type: "fill",  // autocasts as new FillSymbol3DLayer()
+                    type: "fill", 
                     material: { color: [138, 138, 138, 0.4] },
                     outline: {
                       color: "transparent"
@@ -553,9 +551,9 @@
             renderer: {
                 type: "simple",
                 symbol: {
-                  type: "polygon-3d",  // autocasts as new PolygonSymbol3D()
+                  type: "polygon-3d",
                   symbolLayers: [{
-                    type: "fill",  // autocasts as new FillSymbol3DLayer()
+                    type: "fill", 
                     material: { color: [138, 138, 138, 0.3] },
                     outline: {
                       color: "transparent"
@@ -573,9 +571,9 @@
             renderer: {
                 type: "simple",
                 symbol: {
-                  type: "polygon-3d",  // autocasts as new PolygonSymbol3D()
+                  type: "polygon-3d",
                   symbolLayers: [{
-                    type: "fill",  // autocasts as new FillSymbol3DLayer()
+                    type: "fill", 
                     material: { color: [138, 138, 138, 0.2] },
                     outline: {
                       color: "transparent"
@@ -593,9 +591,9 @@
             renderer: {
                 type: "simple",
                 symbol: {
-                  type: "polygon-3d",  // autocasts as new PolygonSymbol3D()
+                  type: "polygon-3d",
                   symbolLayers: [{
-                    type: "fill",  // autocasts as new FillSymbol3DLayer()
+                    type: "fill",
                     material: { color: [138, 138, 138, 0.1] },
                     outline: {
                       color: "transparent"
@@ -605,51 +603,46 @@
               },
             legendEnabled: false,
         });  
-        
-             // Set Scene View
-        
-    var map = new Map({
-        layers: [/*baseCD, allCD, baseCounties,*/ counties, /*allStates,*/ cities,  states, baseOutLine25km, baseOutLine50km, baseOutLine75km, baseOutLine100km] 
-    }); 
-        
-    var view = new SceneView({
-      container: "viewDiv",
-      map: map,
-      viewingMode: "local",
-      popup: {
-              collapseEnabled: false,
-              dockOptions: {
-                  buttonEnabled: false,
-              } 
-            },    
-      environment: {
-        background:{
-            type: "color", 
-            color: [255, 255, 255, 1]
-        },
-        lighting: {
-        directShadowsEnabled: true,
-        date: new Date("Sun Mar 15 2019 16:00:00 GMT+0100 (CET)")
-        },  
-        atmosphereEnabled: false,
-        starsEnabled: false
-      },
-      camera: {
-        position: {
-          latitude: -1.841491,
-          longitude: -97.651421,    
-          //longitude: -96.651421,
-          z: 4700000
-        },
-        tilt: 45,
-        heading: 1
-      }
-    });
-        
-    view.popup.viewModel.actions = false;    
-        
-                            
-        // Add Legend and Home widgets to map; Remove some stock widgets
+ 
+       
+        var map = new Map({
+            layers: [counties, cities,  states, baseOutLine25km, baseOutLine50km, baseOutLine75km, baseOutLine100km] 
+        }); 
+
+        var view = new SceneView({
+          container: "viewDiv",
+          map: map,
+          viewingMode: "local",
+          popup: {
+                  collapseEnabled: false,
+                  dockOptions: {
+                      buttonEnabled: false,
+                  } 
+                },    
+          environment: {
+            background:{
+                type: "color", 
+                color: [255, 255, 255, 1]
+            },
+            lighting: {
+            directShadowsEnabled: true,
+            date: new Date("Sun Mar 15 2019 16:00:00 GMT+0100 (CET)")
+            },  
+            atmosphereEnabled: false,
+            starsEnabled: false
+          },
+          camera: {
+            position: {
+              latitude: -1.841491,
+              longitude: -97.651421,    
+              z: 4700000
+            },
+            tilt: 45,
+            heading: 1
+          }
+        });
+
+        view.popup.viewModel.actions = false;    
           
         map.ground.opacity = 0;  
           
@@ -752,84 +745,10 @@
           });
         }
         
-        
-/***********************Start Looping Code for Counties***************************/  
-         
-        view
-          .when(function() {
-            return counties.when(function() {
-              var query = counties.createQuery();
-              return counties.queryFeatures(query);
-            });
-          })
-          .then(getValues)
-          .then(getUniqueValues)
-          .then(addToSelect);
-
-        function getValues(response) {
-          var features = response.features;
-          var values = features.map(function(feature) {
-            return feature.attributes.CTYNAME;
-          });
-          return values;
-        }
-
-        function getUniqueValues(values) {
-          var uniqueValues = [];
-
-          values.forEach(function(item, i) {
-            if (
-              (uniqueValues.length < 1 || uniqueValues.indexOf(item) === -1) &&
-              item !== ""
-            ) {
-              uniqueValues.push(item);
-            }
-          });
-          return uniqueValues;
-        }
-
-        function addToSelect(values) {
-          values.sort();
-          values.forEach(function(value) {
-            var option = document.createElement("option");
-            option.text = value;
-            countyFilter.add(option);
-          });
-        }
                 
-/****************Begin CD State Filtering Code************************/  
-           
-        view.when().then(function() {
-          view.whenLayerView(counties).then(function(layerView) {
-            const filterSelect = document.getElementById("stateFilter");
-            filterSelect.addEventListener("change", function(event) {
-              const newValue = event.target.value;
-                ? "STNAME = '" + newValue + "'"
-                : null;
-              stateLayerView.filter = {
-                where: whereClause
-              };
-            });
-            stateLayerView = layerView;             
-          });
-        });
+/****************Begin State Filtering Code************************/  
         
         view.when().then(function() {
-          view.whenLayerView(counties).then(function(layerViewTwo) {
-            const filterSelectTwo = document.getElementById("countyFilter");
-            filterSelectTwo.addEventListener("change", function(event) {
-              const newValueTwo = event.target.value;
-                ? "CTYNAME = '" + newValueTwo + "'"
-                : null;
-              countyLayerView.filter = {
-                where: whereClause
-              };
-            });
-            countyLayerView = layerViewTwo;             
-          });
-        });
-        
-        /*view.when().then(function() {
           view.whenLayerView(counties).then(function(layerView) {
             const filterSelect = document.getElementById("stateFilter");
             // filters the layer using a definitionExpression
@@ -855,7 +774,7 @@
                         
           });
 
-        });*/
+        });
         
 /****************Zoom to Home Code for Filter*************/
         
@@ -882,20 +801,47 @@
               }
             });
           });
-        }        
-
-/************Info Window Jquery**********/ 
+        }   
         
-    $(document).ready(function(){
-      $("#infoButton").click(function(){
-        $("#infoDiv").fadeToggle(100);
-      });
-    });    
-    
-    $("#infoButton").click(function() {
-      $("#infoButton").toggleClass('buttonStyle-clicked');
-      $(".fa-info-circle").toggleClass('click');    
-    });    
+/************Filter Clear Button**********/
+        
+        
+        $(document).ready(function(){
+          $("#reset").click(function(){
+                view.when().then(function() {
+                  view.whenLayerView(counties).then(function(layerView) {
+                      const newValue = "";
+                      const whereClause = newValue
+                        ? "STNAME = '" + newValue + "'"
+                        : null;
+                      stateLayerView.filter = {
+                        where: whereClause
+                      };
+                      zoomHome();
+                       $("#stateFilter")[0].selectedIndex=0;
+                    });
+
+                });
+               
+          });
+        }); 
+        
+        
+
+/************Info Window Jquery**********/     
+        
+        $(document).ready(function(){
+          $("#infoButton").click(function(){
+            $("#infoDiv").fadeToggle(100);
+          });
+        });    
+
+        $("#infoButton").click(function() {
+          $("#infoButton").toggleClass('buttonStyle-clicked');
+          $(".fa-info-circle").toggleClass('click');    
+        });    
+        
+        
 });
         
     
