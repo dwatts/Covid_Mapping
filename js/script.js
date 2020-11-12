@@ -708,7 +708,7 @@
             }
         });
      
-/***********************Start Looping Code for CD States***************************/  
+/***********************Start Looping Code for States***************************/  
          
         view
           .when(function() {
@@ -751,12 +751,85 @@
             stateFilter.add(option);
           });
         }
-
-
         
+        
+/***********************Start Looping Code for Counties***************************/  
+         
+        view
+          .when(function() {
+            return counties.when(function() {
+              var query = counties.createQuery();
+              return counties.queryFeatures(query);
+            });
+          })
+          .then(getValues)
+          .then(getUniqueValues)
+          .then(addToSelect);
+
+        function getValues(response) {
+          var features = response.features;
+          var values = features.map(function(feature) {
+            return feature.attributes.CTYNAME;
+          });
+          return values;
+        }
+
+        function getUniqueValues(values) {
+          var uniqueValues = [];
+
+          values.forEach(function(item, i) {
+            if (
+              (uniqueValues.length < 1 || uniqueValues.indexOf(item) === -1) &&
+              item !== ""
+            ) {
+              uniqueValues.push(item);
+            }
+          });
+          return uniqueValues;
+        }
+
+        function addToSelect(values) {
+          values.sort();
+          values.forEach(function(value) {
+            var option = document.createElement("option");
+            option.text = value;
+            countyFilter.add(option);
+          });
+        }
+                
 /****************Begin CD State Filtering Code************************/  
            
         view.when().then(function() {
+          view.whenLayerView(counties).then(function(layerView) {
+            const filterSelect = document.getElementById("stateFilter");
+            filterSelect.addEventListener("change", function(event) {
+              const newValue = event.target.value;
+                ? "STNAME = '" + newValue + "'"
+                : null;
+              stateLayerView.filter = {
+                where: whereClause
+              };
+            });
+            stateLayerView = layerView;             
+          });
+        });
+        
+        view.when().then(function() {
+          view.whenLayerView(counties).then(function(layerViewTwo) {
+            const filterSelectTwo = document.getElementById("countyFilter");
+            filterSelectTwo.addEventListener("change", function(event) {
+              const newValueTwo = event.target.value;
+                ? "CTYNAME = '" + newValueTwo + "'"
+                : null;
+              countyLayerView.filter = {
+                where: whereClause
+              };
+            });
+            countyLayerView = layerViewTwo;             
+          });
+        });
+        
+        /*view.when().then(function() {
           view.whenLayerView(counties).then(function(layerView) {
             const filterSelect = document.getElementById("stateFilter");
             // filters the layer using a definitionExpression
@@ -782,7 +855,7 @@
                         
           });
 
-        });
+        });*/
         
 /****************Zoom to Home Code for Filter*************/
         
